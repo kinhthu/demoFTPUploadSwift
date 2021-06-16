@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */; };
+		8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6F267A0DE000AE2E36 /* ContentView.swift */; };
+		8664CF72267A0DE100AE2E36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664CF71267A0DE100AE2E36 /* Assets.xcassets */; };
+		8664CF75267A0DE100AE2E36 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664CF74267A0DE100AE2E36 /* Preview Assets.xcassets */; };
+		8664CF80267A0DE100AE2E36 /* FtpUploadDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF7F267A0DE100AE2E36 /* FtpUploadDemoTests.swift */; };
+		8664CF8B267A0DE100AE2E36 /* FtpUploadDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF8A267A0DE100AE2E36 /* FtpUploadDemoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8664CF7C267A0DE100AE2E36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8664CF62267A0DE000AE2E36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8664CF69267A0DE000AE2E36;
+			remoteInfo = FtpUploadDemo;
+		};
+		8664CF87267A0DE100AE2E36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8664CF62267A0DE000AE2E36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8664CF69267A0DE000AE2E36;
+			remoteInfo = FtpUploadDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8664CF6A267A0DE000AE2E36 /* FtpUploadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FtpUploadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtpUploadDemoApp.swift; sourceTree = "<group>"; };
+		8664CF6F267A0DE000AE2E36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8664CF71267A0DE100AE2E36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8664CF74267A0DE100AE2E36 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8664CF76267A0DE100AE2E36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8664CF7B267A0DE100AE2E36 /* FtpUploadDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FtpUploadDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8664CF7F267A0DE100AE2E36 /* FtpUploadDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtpUploadDemoTests.swift; sourceTree = "<group>"; };
+		8664CF81267A0DE100AE2E36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8664CF86267A0DE100AE2E36 /* FtpUploadDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FtpUploadDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8664CF8A267A0DE100AE2E36 /* FtpUploadDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtpUploadDemoUITests.swift; sourceTree = "<group>"; };
+		8664CF8C267A0DE100AE2E36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8664CF67267A0DE000AE2E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF78267A0DE100AE2E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF83267A0DE100AE2E36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8664CF61267A0DE000AE2E36 = {
+			isa = PBXGroup;
+			children = (
+				8664CF6C267A0DE000AE2E36 /* FtpUploadDemo */,
+				8664CF7E267A0DE100AE2E36 /* FtpUploadDemoTests */,
+				8664CF89267A0DE100AE2E36 /* FtpUploadDemoUITests */,
+				8664CF6B267A0DE000AE2E36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8664CF6B267A0DE000AE2E36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8664CF6A267A0DE000AE2E36 /* FtpUploadDemo.app */,
+				8664CF7B267A0DE100AE2E36 /* FtpUploadDemoTests.xctest */,
+				8664CF86267A0DE100AE2E36 /* FtpUploadDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8664CF6C267A0DE000AE2E36 /* FtpUploadDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */,
+				8664CF6F267A0DE000AE2E36 /* ContentView.swift */,
+				8664CF71267A0DE100AE2E36 /* Assets.xcassets */,
+				8664CF76267A0DE100AE2E36 /* Info.plist */,
+				8664CF73267A0DE100AE2E36 /* Preview Content */,
+			);
+			path = FtpUploadDemo;
+			sourceTree = "<group>";
+		};
+		8664CF73267A0DE100AE2E36 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8664CF74267A0DE100AE2E36 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8664CF7E267A0DE100AE2E36 /* FtpUploadDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				8664CF7F267A0DE100AE2E36 /* FtpUploadDemoTests.swift */,
+				8664CF81267A0DE100AE2E36 /* Info.plist */,
+			);
+			path = FtpUploadDemoTests;
+			sourceTree = "<group>";
+		};
+		8664CF89267A0DE100AE2E36 /* FtpUploadDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8664CF8A267A0DE100AE2E36 /* FtpUploadDemoUITests.swift */,
+				8664CF8C267A0DE100AE2E36 /* Info.plist */,
+			);
+			path = FtpUploadDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8664CF69267A0DE000AE2E36 /* FtpUploadDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8664CF8F267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemo" */;
+			buildPhases = (
+				8664CF66267A0DE000AE2E36 /* Sources */,
+				8664CF67267A0DE000AE2E36 /* Frameworks */,
+				8664CF68267A0DE000AE2E36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FtpUploadDemo;
+			productName = FtpUploadDemo;
+			productReference = 8664CF6A267A0DE000AE2E36 /* FtpUploadDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8664CF7A267A0DE100AE2E36 /* FtpUploadDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8664CF92267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemoTests" */;
+			buildPhases = (
+				8664CF77267A0DE100AE2E36 /* Sources */,
+				8664CF78267A0DE100AE2E36 /* Frameworks */,
+				8664CF79267A0DE100AE2E36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8664CF7D267A0DE100AE2E36 /* PBXTargetDependency */,
+			);
+			name = FtpUploadDemoTests;
+			productName = FtpUploadDemoTests;
+			productReference = 8664CF7B267A0DE100AE2E36 /* FtpUploadDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8664CF85267A0DE100AE2E36 /* FtpUploadDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8664CF95267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemoUITests" */;
+			buildPhases = (
+				8664CF82267A0DE100AE2E36 /* Sources */,
+				8664CF83267A0DE100AE2E36 /* Frameworks */,
+				8664CF84267A0DE100AE2E36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8664CF88267A0DE100AE2E36 /* PBXTargetDependency */,
+			);
+			name = FtpUploadDemoUITests;
+			productName = FtpUploadDemoUITests;
+			productReference = 8664CF86267A0DE100AE2E36 /* FtpUploadDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8664CF62267A0DE000AE2E36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					8664CF69267A0DE000AE2E36 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					8664CF7A267A0DE100AE2E36 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8664CF69267A0DE000AE2E36;
+					};
+					8664CF85267A0DE100AE2E36 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 8664CF69267A0DE000AE2E36;
+					};
+				};
+			};
+			buildConfigurationList = 8664CF65267A0DE000AE2E36 /* Build configuration list for PBXProject "FtpUploadDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8664CF61267A0DE000AE2E36;
+			productRefGroup = 8664CF6B267A0DE000AE2E36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8664CF69267A0DE000AE2E36 /* FtpUploadDemo */,
+				8664CF7A267A0DE100AE2E36 /* FtpUploadDemoTests */,
+				8664CF85267A0DE100AE2E36 /* FtpUploadDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8664CF68267A0DE000AE2E36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8664CF75267A0DE100AE2E36 /* Preview Assets.xcassets in Resources */,
+				8664CF72267A0DE100AE2E36 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF79267A0DE100AE2E36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF84267A0DE100AE2E36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8664CF66267A0DE000AE2E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */,
+				8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF77267A0DE100AE2E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8664CF80267A0DE100AE2E36 /* FtpUploadDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8664CF82267A0DE100AE2E36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8664CF8B267A0DE100AE2E36 /* FtpUploadDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8664CF7D267A0DE100AE2E36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8664CF69267A0DE000AE2E36 /* FtpUploadDemo */;
+			targetProxy = 8664CF7C267A0DE100AE2E36 /* PBXContainerItemProxy */;
+		};
+		8664CF88267A0DE100AE2E36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8664CF69267A0DE000AE2E36 /* FtpUploadDemo */;
+			targetProxy = 8664CF87267A0DE100AE2E36 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8664CF8D267A0DE100AE2E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8664CF8E267A0DE100AE2E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8664CF90267A0DE100AE2E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FtpUploadDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FtpUploadDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8664CF91267A0DE100AE2E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"FtpUploadDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = FtpUploadDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8664CF93267A0DE100AE2E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				INFOPLIST_FILE = FtpUploadDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FtpUploadDemo.app/FtpUploadDemo";
+			};
+			name = Debug;
+		};
+		8664CF94267A0DE100AE2E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				INFOPLIST_FILE = FtpUploadDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FtpUploadDemo.app/FtpUploadDemo";
+			};
+			name = Release;
+		};
+		8664CF96267A0DE100AE2E36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				INFOPLIST_FILE = FtpUploadDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FtpUploadDemo;
+			};
+			name = Debug;
+		};
+		8664CF97267A0DE100AE2E36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CZ6GH645A6;
+				INFOPLIST_FILE = FtpUploadDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FtpUploadDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8664CF65267A0DE000AE2E36 /* Build configuration list for PBXProject "FtpUploadDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8664CF8D267A0DE100AE2E36 /* Debug */,
+				8664CF8E267A0DE100AE2E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8664CF8F267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8664CF90267A0DE100AE2E36 /* Debug */,
+				8664CF91267A0DE100AE2E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8664CF92267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8664CF93267A0DE100AE2E36 /* Debug */,
+				8664CF94267A0DE100AE2E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8664CF95267A0DE100AE2E36 /* Build configuration list for PBXNativeTarget "FtpUploadDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8664CF96267A0DE100AE2E36 /* Debug */,
+				8664CF97267A0DE100AE2E36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8664CF62267A0DE000AE2E36 /* Project object */;
+}
