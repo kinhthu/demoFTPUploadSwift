@@ -1,0 +1,6 @@
+framework module Pods_FtpUploadDemo {
+  umbrella header "Pods-FtpUploadDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
