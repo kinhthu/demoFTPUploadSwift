@@ -11,7 +11,7 @@ import AMSMB2
 class SMBClient {
     
     let serverURL = URL(string: "smb://192.168.1.53")!
-    let credential = URLCredential(user: "kinhthu", password: "lamgico", persistence: URLCredential.Persistence.forSession)
+    let credential = URLCredential(user: "aaa", password: "abc", persistence: URLCredential.Persistence.forSession)
     let shareDirectory = "FTP Sharing"
     
     lazy public var client = AMSMB2(url: self.serverURL, credential: self.credential)!
