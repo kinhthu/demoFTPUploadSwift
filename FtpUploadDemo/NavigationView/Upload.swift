@@ -13,6 +13,10 @@ struct UploadView: View {
     @State var uploadTime: Double = 0
     @State var progress = ""
     
+    var isHeicSupported: Bool {
+        (CGImageDestinationCopyTypeIdentifiers() as! [String]).contains("public.heic")
+    }
+    
     func clearFile() {
         self.selectedImage = UIImage()
         self.selectedVideoUrl = ""
@@ -55,7 +59,7 @@ struct UploadView: View {
                 let videoData = try Data(contentsOf: url, options: .alwaysMapped)
                 let theFileName = (self.selectedVideoUrl as NSString).lastPathComponent
                 smbClient.client.uploadItem(at: url, toPath: "/\(theFileName)") { size in
-                    progress = "\(size)/\(videoData.count)"
+                    progress = size == 0 ? "100%" : "\((Int(size)*100/videoData.count))%"
                     return true
                 } completionHandler: { _ in
                     print("Uploaded Successfully!")
@@ -73,16 +77,23 @@ struct UploadView: View {
                print(error)
              }
         } else {
-            if let imgData = self.selectedImage.pngData() as NSData? {
+            if var imgData = self.selectedImage.pngData() as Data? {
                 self.uploading.toggle()
 
                 let start = DispatchTime.now()
                 
                 let currentDate = Date()
-                let fileName = String(currentDate.timeIntervalSinceReferenceDate) + ".jpg"
+                var fileName = String(currentDate.timeIntervalSinceReferenceDate)
+                
+                if isHeicSupported, let heicData = self.selectedImage.heic(compressionQuality: 0.75) {
+                    imgData = heicData
+                    fileName = fileName + ".heic"
+                } else {
+                    fileName = fileName + ".jpec"
+                }
                 
                 smbClient.client.write(data: imgData, toPath: "/\(fileName)") { size in
-                    progress = "\(size)/\(imgData.count)"
+                    progress = size == 0 ? "100%" : "\((Int(size)*100/imgData.count))%"
                     return true
                 } completionHandler: { _ in
                     print("Uploaded Successfully!")
@@ -144,4 +155,36 @@ struct UploadView: View {
             }
         }
     }
+}
+extension UIImage {
+    var heic: Data? { heic() }
+    func heic(compressionQuality: CGFloat = 1) -> Data? {
+        guard
+            let mutableData = CFDataCreateMutable(nil, 0),
+            let destination = CGImageDestinationCreateWithData(mutableData, "public.heic" as CFString, 1, nil),
+            let cgImage = cgImage
+        else { return nil }
+        CGImageDestinationAddImage(destination, cgImage, [kCGImageDestinationLossyCompressionQuality: compressionQuality, kCGImagePropertyOrientation: cgImageOrientation.rawValue] as CFDictionary)
+        guard CGImageDestinationFinalize(destination) else { return nil }
+        return mutableData as Data
+    }
+}
+extension CGImagePropertyOrientation {
+    init(_ uiOrientation: UIImage.Orientation) {
+        switch uiOrientation {
+            case .up: self = .up
+            case .upMirrored: self = .upMirrored
+            case .down: self = .down
+            case .downMirrored: self = .downMirrored
+            case .left: self = .left
+            case .leftMirrored: self = .leftMirrored
+            case .right: self = .right
+            case .rightMirrored: self = .rightMirrored
+        @unknown default:
+            fatalError()
+        }
+    }
+}
+extension UIImage {
+    var cgImageOrientation: CGImagePropertyOrientation { .init(imageOrientation) }
 }
