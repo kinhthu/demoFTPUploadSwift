@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E1A592A1E783459846C47DA /* Pods_FtpUploadDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CDE4E7630C196ED0CDB934 /* Pods_FtpUploadDemo.framework */; };
 		819156951CFCCCB2EBE111CA /* Pods_FtpUploadDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C15F2BE640E7C61322F64 /* Pods_FtpUploadDemoTests.framework */; };
+		860F0EFA268198EC008029AF /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F0EF9268198EC008029AF /* PhotoPickerModel.swift */; };
+		860F0EFC26819ADB008029AF /* LivePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F0EFB26819ADB008029AF /* LivePhotoView.swift */; };
 		8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */; };
 		8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6F267A0DE000AE2E36 /* ContentView.swift */; };
 		8664CF72267A0DE100AE2E36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664CF71267A0DE100AE2E36 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		3E4C15F2BE640E7C61322F64 /* Pods_FtpUploadDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FtpUploadDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E705B06F031C6B29204FAB0 /* Pods-FtpUploadDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemo.debug.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemo/Pods-FtpUploadDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		72EB526B98B13DAA51EB9C22 /* Pods-FtpUploadDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemoTests/Pods-FtpUploadDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		860F0EF9268198EC008029AF /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
+		860F0EFB26819ADB008029AF /* LivePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePhotoView.swift; sourceTree = "<group>"; };
 		8664CF6A267A0DE000AE2E36 /* FtpUploadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FtpUploadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtpUploadDemoApp.swift; sourceTree = "<group>"; };
 		8664CF6F267A0DE000AE2E36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				8664CF9A267A0E3000AE2E36 /* ImagePicker.swift */,
 				8664CF9B267A0E3000AE2E36 /* PhotoPicker.swift */,
 				8664CF99267A0E3000AE2E36 /* UrlImageModel.swift */,
+				860F0EF9268198EC008029AF /* PhotoPickerModel.swift */,
+				860F0EFB26819ADB008029AF /* LivePhotoView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,8 +450,10 @@
 			files = (
 				8664CFA2267A0ED500AE2E36 /* Upload.swift in Sources */,
 				8664CFA3267A0ED500AE2E36 /* Library.swift in Sources */,
+				860F0EFA268198EC008029AF /* PhotoPickerModel.swift in Sources */,
 				8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */,
 				8664CF9D267A0E3000AE2E36 /* ImagePicker.swift in Sources */,
+				860F0EFC26819ADB008029AF /* LivePhotoView.swift in Sources */,
 				8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */,
 				8664CF9E267A0E3000AE2E36 /* PhotoPicker.swift in Sources */,
 				8664CF9C267A0E3000AE2E36 /* UrlImageModel.swift in Sources */,

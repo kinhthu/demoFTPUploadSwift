@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "UploadView.uploadFile():Upload.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mediaItems.items[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

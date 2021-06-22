@@ -29,6 +29,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
             } else if let selectedImageFromPicker = info[.originalImage] as? UIImage {
                 self.parent.selectedVideo = ""
                 self.parent.selectedImage = selectedImageFromPicker
+                print("Image path: \(info[.imageURL])")
             }
             
             self.parent.isPresented = false

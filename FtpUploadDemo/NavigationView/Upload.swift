@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import AVKit
 
 struct UploadView: View {
     @Binding var smbClient: SMBClient
@@ -12,6 +13,8 @@ struct UploadView: View {
     @State var error = ""
     @State var uploadTime: Double = 0
     @State var progress = ""
+    
+    @ObservedObject var mediaItems = PickedMediaItems()
     
     var isHeicSupported: Bool {
         (CGImageDestinationCopyTypeIdentifiers() as! [String]).contains("public.heic")
@@ -49,17 +52,17 @@ struct UploadView: View {
     func uploadFile() {
         self.updateSuccess = false
         self.uploadTime = 0
+        let item = mediaItems.items[0]
         
-        if (self.selectedVideoUrl != "") {
-            let url = URL(fileURLWithPath: self.selectedVideoUrl)
-
-            do {
-                let start = DispatchTime.now()
-                self.uploading.toggle()
-                let videoData = try Data(contentsOf: url, options: .alwaysMapped)
-                let theFileName = (self.selectedVideoUrl as NSString).lastPathComponent
-                smbClient.client.uploadItem(at: url, toPath: "/\(theFileName)") { size in
-                    progress = size == 0 ? "100%" : "\((Int(size)*100/videoData.count))%"
+        do {
+            print("upload video: \(item.url!)")
+            let start = DispatchTime.now()
+            self.uploading.toggle()
+                let mediaData = try Data(contentsOf: item.url!, options: .alwaysMapped)
+                let theFileName = (item.url!.path as NSString).lastPathComponent
+                
+                smbClient.client.uploadItem(at: item.url!, toPath: "/\(theFileName)") { size in
+                    progress = size == 0 ? "100%" : "\((Int(size)*100/mediaData.count))%"
                     return true
                 } completionHandler: { _ in
                     print("Uploaded Successfully!")
@@ -71,52 +74,39 @@ struct UploadView: View {
                     let timeInterval = Double(nanoTime)
                     self.uploadTime = timeInterval/1000000000
                 }
-
-
-             } catch let error {
-               print(error)
-             }
-        } else {
-            if var imgData = self.selectedImage.pngData() as Data? {
-                self.uploading.toggle()
-
-                let start = DispatchTime.now()
-                
-                let currentDate = Date()
-                var fileName = String(currentDate.timeIntervalSinceReferenceDate)
-                
-                if isHeicSupported, let heicData = self.selectedImage.heic(compressionQuality: 0.75) {
-                    imgData = heicData
-                    fileName = fileName + ".heic"
-                } else {
-                    fileName = fileName + ".jpec"
-                }
-                
-                smbClient.client.write(data: imgData, toPath: "/\(fileName)") { size in
-                    progress = size == 0 ? "100%" : "\((Int(size)*100/imgData.count))%"
-                    return true
-                } completionHandler: { _ in
-                    print("Uploaded Successfully!")
-                    clearFile()
-                    self.updateSuccess = true
-
-                    let end = DispatchTime.now()
-                    let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
-                    let timeInterval = Double(nanoTime)
-                    self.uploadTime = timeInterval/1000000000
-                }
-            }
-        }
+         } catch let error {
+           print(error)
+         }
     }
     
     var body: some View {
-        VStack{
-            Image(uiImage: getPreviewImage())
-                .resizable()
-                .scaledToFill()
-                .frame(width: .infinity, height: 400, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-                .clipped()
+        VStack {
+            List(mediaItems.items, id: \.id) { item in
+                ZStack(alignment: .topLeading) {
+                    if item.mediaType == .photo {
+                        Image(uiImage: getImageData(url: item.url!))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } else if item.mediaType == .video {
+                        if let url = item.url {
+                            VideoPlayer(player: AVPlayer(url: url))
+                                .frame(minHeight: 200)
+                        } else { EmptyView() }
+                    } else {
+                        Image(uiImage: getImageData(url: item.url!))
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
+
+                    Image(systemName: getMediaImageName(using: item))
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .padding(4)
+                        .background(Color.black.opacity(0.5))
+                        .foregroundColor(.white)
+                }
+            }
             
             Button(action: {
                 self.isShowingImagePicker.toggle()
@@ -124,10 +114,13 @@ struct UploadView: View {
                 Text("Select Photo")
             })
             .disabled(self.uploading)
-//            .padding(.vertical)
             .sheet(isPresented: $isShowingImagePicker, content: {
 //                ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$selectedImage, selectedVideo: self.$selectedVideoUrl)
-                PhotoPicker(isPresented: self.$isShowingImagePicker, selectedImage: self.$selectedImage, selectedVideo: self.$selectedVideoUrl)
+//                PhotoPicker(isPresented: self.$isShowingImagePicker, selectedImage: self.$selectedImage, selectedVideo: self.$selectedVideoUrl)
+                PhotoPicker(mediaItems: mediaItems) { didSelectItem in
+                    // Handle didSelectItems value here...
+                    self.isShowingImagePicker = false
+                }
             })
             
             Button(action: {
@@ -139,9 +132,7 @@ struct UploadView: View {
                 Text(self.uploading ? "Uploading \(progress)..." : "Upload")
             })
             .padding(.vertical)
-            .disabled(self.selectedImage.ciImage == nil && self.selectedImage.cgImage == nil && self.selectedVideoUrl == "")
-            
-            Text(selectedVideoUrl)
+            .disabled(mediaItems.items.count == 0)
             
             if(self.uploadTime > 0) {
                 Text("Time upload: \(self.uploadTime) seconds")
@@ -154,6 +145,19 @@ struct UploadView: View {
                 Text("Uploaded successfully!")
             }
         }
+    }
+    
+    fileprivate func getMediaImageName(using item: PhotoPickerModel) -> String {
+        switch item.mediaType {
+            case .photo: return "photo"
+            case .video: return "video"
+            case .livePhoto: return "livephoto"
+        }
+    }
+    
+    func getImageData(url: URL) -> UIImage {
+        let data = try? Data(contentsOf: url)
+        return UIImage(data: data!)!
     }
 }
 extension UIImage {

@@ -2,15 +2,19 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
-    @Binding var isPresented: Bool
-    @Binding var selectedImage: UIImage
-    @Binding var selectedVideo: String
+    typealias UIViewControllerType = PHPickerViewController
+    
+    @ObservedObject var mediaItems: PickedMediaItems
+    var didFinishPicking: (_ didSelectItems: Bool) -> Void
+    
     func makeUIViewController(context: Context) -> PHPickerViewController {
-        var configuration = PHPickerConfiguration(photoLibrary: .shared())
-        configuration.filter = .any(of: [.images,.videos])
-        let controller = PHPickerViewController(configuration: configuration)
-        controller.delegate = context.coordinator
+        var config = PHPickerConfiguration()
+        config.filter = .any(of: [.images, .videos])
+        config.selectionLimit = 1
+        config.preferredAssetRepresentationMode = .current
         
+        let controller = PHPickerViewController(configuration: config)
+        controller.delegate = context.coordinator
         return controller
     }
     
@@ -18,40 +22,103 @@ struct PhotoPicker: UIViewControllerRepresentable {
         
     }
     
+    
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        Coordinator(with: self)
     }
     
+    
     class Coordinator: PHPickerViewControllerDelegate {
-        private var parent: PhotoPicker
+        var photoPicker: PhotoPicker
         
-        init(_ parent: PhotoPicker) {
-            self.parent = parent
+        init(with photoPicker: PhotoPicker) {
+            self.photoPicker = photoPicker
         }
         
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            parent.isPresented = false
+            photoPicker.didFinishPicking(!results.isEmpty)
             
-            if let itemProvided = results.first?.itemProvider, itemProvided.canLoadObject(ofClass: UIImage.self) {
-                itemProvided.loadObject(ofClass: UIImage.self) {[weak self] uiImage, error in
-                    DispatchQueue.main.async {
-                        guard let self = self, let uiImage = uiImage as? UIImage else {return}
-                        self.parent.selectedImage = uiImage
-                        self.parent.selectedVideo = ""
-                    }
-                }
+            guard !results.isEmpty else {
+                return
             }
             
-//            Video
-            if let videoProvided = results.first?.itemProvider {
-                videoProvided.loadItem(forTypeIdentifier: UTType.movie.identifier, options: [:]) { [self] (url, error) in
-                    DispatchQueue.main.async {
-                        guard let videoUrl = url as! URL? else {return}
-                        self.parent.selectedVideo = videoUrl.path
-                        self.parent.selectedImage = UIImage()
-                    }
-               }
+            for result in results {
+                let itemProvider = result.itemProvider
+                
+                guard let typeIdentifier = itemProvider.registeredTypeIdentifiers.first,
+                      let utType = UTType(typeIdentifier)
+                else { continue }
+                
+                if utType.conforms(to: .image) {
+//                    self.getPhoto(from: itemProvider, isLivePhoto: false)
+//                    self.getImage(from: itemProvider, typeIdentifier: typeIdentifier)
+                    self.getVideo(from: itemProvider, typeIdentifier: typeIdentifier, type: .photo)
+                } else if utType.conforms(to: .movie) {
+                    self.getVideo(from: itemProvider, typeIdentifier: typeIdentifier, type: .video)
+                }
+//                else {
+//                    self.getVideo(from: itemProvider, typeIdentifier: typeIdentifier, type: .livePhoto)
+////                    self.getPhoto(from: itemProvider, isLivePhoto: true)
+//                }
             }
         }
+        
+        
+//        private func getPhoto(from itemProvider: NSItemProvider, isLivePhoto: Bool) {
+//            let objectType: NSItemProviderReading.Type = !isLivePhoto ? UIImage.self : PHLivePhoto.self
+//            
+//            if itemProvider.canLoadObject(ofClass: objectType) {
+//                itemProvider.loadObject(ofClass: objectType) { object, error in
+//                    if let error = error {
+//                        print(error.localizedDescription)
+//                    }
+//                    
+//                    if !isLivePhoto {
+//                        if let image = object as? UIImage {
+//                            DispatchQueue.main.async {
+//                                self.photoPicker.mediaItems.deleteAll()
+//                                self.photoPicker.mediaItems.append(item: PhotoPickerModel(with: image))
+//                            }
+//                        }
+//                    } else {
+//                        if let livePhoto = object as? PHLivePhoto {
+//                            DispatchQueue.main.async {
+//                                self.photoPicker.mediaItems.deleteAll()
+//                                self.photoPicker.mediaItems.append(item: PhotoPickerModel(with: livePhoto))
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+        private func getVideo(from itemProvider: NSItemProvider, typeIdentifier: String, type: MediaType) {
+            itemProvider.loadFileRepresentation(forTypeIdentifier: typeIdentifier) { url, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                guard let url = url else { return }
+                
+                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+                guard let targetURL = documentsDirectory?.appendingPathComponent(url.lastPathComponent) else { return }
+                
+                do {
+                    if FileManager.default.fileExists(atPath: targetURL.path) {
+                        try FileManager.default.removeItem(at: targetURL)
+                    }
+                    
+                    try FileManager.default.copyItem(at: url, to: targetURL)
+                    
+                    DispatchQueue.main.async {
+                        self.photoPicker.mediaItems.deleteAll()
+                        self.photoPicker.mediaItems.append(item: PhotoPickerModel(with: targetURL, type: type))
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
     }
 }
