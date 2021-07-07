@@ -117,7 +117,7 @@ struct UploadView: View {
             .sheet(isPresented: $isShowingImagePicker, content: {
 //                ImagePickerView(isPresented: self.$isShowingImagePicker, selectedImage: self.$selectedImage, selectedVideo: self.$selectedVideoUrl)
 //                PhotoPicker(isPresented: self.$isShowingImagePicker, selectedImage: self.$selectedImage, selectedVideo: self.$selectedVideoUrl)
-                PhotoPicker(mediaItems: mediaItems) { didSelectItem in
+                PhotoPicker(isOnlyVideo: false, mediaItems: mediaItems) { didSelectItem in
                     // Handle didSelectItems value here...
                     self.isShowingImagePicker = false
                 }

@@ -11,6 +11,8 @@
 		819156951CFCCCB2EBE111CA /* Pods_FtpUploadDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C15F2BE640E7C61322F64 /* Pods_FtpUploadDemoTests.framework */; };
 		860F0EFA268198EC008029AF /* PhotoPickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F0EF9268198EC008029AF /* PhotoPickerModel.swift */; };
 		860F0EFC26819ADB008029AF /* LivePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860F0EFB26819ADB008029AF /* LivePhotoView.swift */; };
+		861D16852695FB8900F84AD2 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D16842695FB8900F84AD2 /* VideoView.swift */; };
+		861D16882696014200F84AD2 /* VideoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 861D16872696014200F84AD2 /* VideoEditor.swift */; };
 		8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */; };
 		8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CF6F267A0DE000AE2E36 /* ContentView.swift */; };
 		8664CF72267A0DE100AE2E36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8664CF71267A0DE100AE2E36 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		72EB526B98B13DAA51EB9C22 /* Pods-FtpUploadDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemoTests/Pods-FtpUploadDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		860F0EF9268198EC008029AF /* PhotoPickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModel.swift; sourceTree = "<group>"; };
 		860F0EFB26819ADB008029AF /* LivePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePhotoView.swift; sourceTree = "<group>"; };
+		861D16842695FB8900F84AD2 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		861D16872696014200F84AD2 /* VideoEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoEditor.swift; sourceTree = "<group>"; };
 		8664CF6A267A0DE000AE2E36 /* FtpUploadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FtpUploadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FtpUploadDemoApp.swift; sourceTree = "<group>"; };
 		8664CF6F267A0DE000AE2E36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		861D16862696013300F84AD2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				861D16872696014200F84AD2 /* VideoEditor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8664CF61267A0DE000AE2E36 = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +154,8 @@
 		8664CF6C267A0DE000AE2E36 /* FtpUploadDemo */ = {
 			isa = PBXGroup;
 			children = (
-				8664CF9F267A0EC400AE2E36 /* NavigationView */,
+				861D16862696013300F84AD2 /* Helpers */,
+				8664CF9F267A0EC400AE2E36 /* View */,
 				8664CF98267A0E1000AE2E36 /* Model */,
 				8664CF6D267A0DE000AE2E36 /* FtpUploadDemoApp.swift */,
 				8664CF6F267A0DE000AE2E36 /* ContentView.swift */,
@@ -191,13 +204,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8664CF9F267A0EC400AE2E36 /* NavigationView */ = {
+		8664CF9F267A0EC400AE2E36 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8664CFA1267A0ED500AE2E36 /* Library.swift */,
 				8664CFA0267A0ED500AE2E36 /* Upload.swift */,
+				861D16842695FB8900F84AD2 /* VideoView.swift */,
 			);
-			path = NavigationView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		F1B1734F30E1521F05A0887F /* Frameworks */ = {
@@ -452,8 +466,10 @@
 				8664CFA3267A0ED500AE2E36 /* Library.swift in Sources */,
 				860F0EFA268198EC008029AF /* PhotoPickerModel.swift in Sources */,
 				8664CF70267A0DE000AE2E36 /* ContentView.swift in Sources */,
+				861D16882696014200F84AD2 /* VideoEditor.swift in Sources */,
 				8664CF9D267A0E3000AE2E36 /* ImagePicker.swift in Sources */,
 				860F0EFC26819ADB008029AF /* LivePhotoView.swift in Sources */,
+				861D16852695FB8900F84AD2 /* VideoView.swift in Sources */,
 				8664CF6E267A0DE000AE2E36 /* FtpUploadDemoApp.swift in Sources */,
 				8664CF9E267A0E3000AE2E36 /* PhotoPicker.swift in Sources */,
 				8664CF9C267A0E3000AE2E36 /* UrlImageModel.swift in Sources */,

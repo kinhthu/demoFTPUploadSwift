@@ -10,9 +10,11 @@ import AMSMB2
 
 class SMBClient {
     
-//    let serverURL = URL(string: "smb://192.168.1.53")!
-    let serverURL = URL(string: "smb://192.168.86.228")!
-    let credential = URLCredential(user: "asdf", password: "asdf", persistence: URLCredential.Persistence.forSession)
+    let serverURL = URL(string: "smb://192.168.1.53")!
+//    let serverURL = URL(string: "smb://192.168.86.228")!
+//    let serverURL = URL(string: "smb://epicdevprem:ibiotimxktuf%2fn2ejwajp4ighwoaokzpzbbrdli0mi6ppntzlid2n1p56o9eic0yro626trwq0nyqwll%2fe9qrw%3d%3d@epicdevprem.file.core.windows.net/bec")!
+//    let credential = URLCredential(user: "epicdevprem", password: "caVf4s+0LGp2I9SL85OQTG7NniWukEfUpYtJoZwWfATruMyil29sS9v00LY5lwZoC3lQOvmNArC/y6WhiTtdFw==", persistence: URLCredential.Persistence.forSession)
+    let credential = URLCredential(user: "kinhthu", password: "lamgico", persistence: URLCredential.Persistence.forSession)
     let shareDirectory = "FTP Sharing"
     
     lazy public var client = AMSMB2(url: self.serverURL, credential: self.credential)!
@@ -34,6 +36,10 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            VideoView()
+                .tabItem {
+                    Label("Library", systemImage: "video.fill")
+                }
             UploadView(smbClient: self.$smbClient)
                 .tabItem {
                 Label("Upload", systemImage: "icloud.and.arrow.up.fill")

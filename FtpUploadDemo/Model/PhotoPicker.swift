@@ -3,13 +3,13 @@ import PhotosUI
 
 struct PhotoPicker: UIViewControllerRepresentable {
     typealias UIViewControllerType = PHPickerViewController
-    
+    var isOnlyVideo: Bool
     @ObservedObject var mediaItems: PickedMediaItems
     var didFinishPicking: (_ didSelectItems: Bool) -> Void
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
-        config.filter = .any(of: [.images, .videos])
+        config.filter = isOnlyVideo ? .videos : .any(of: [.images, .videos])
         config.selectionLimit = 1
         config.preferredAssetRepresentationMode = .current
         
