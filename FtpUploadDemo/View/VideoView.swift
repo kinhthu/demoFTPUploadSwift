@@ -48,10 +48,12 @@ struct VideoView: View {
       }
     }
     
-    func startEdit() {
+    func startEdit(speed: Double) {
+        savedUrl = nil
+        
         isShowLoading.toggle()
         let start = DispatchTime.now()
-        editor.editVideo(fromVideoAt: mediaItems.items[0].url!, forText: text) { exportedURL in
+        editor.editVideo(fromVideoAt: mediaItems.items[0].url!, forText: text, speed: speed) { exportedURL in
             isShowLoading.toggle()
             guard let exportedURL = exportedURL else {
               return
@@ -97,11 +99,43 @@ struct VideoView: View {
             .padding()
             
             if mediaItems.items.count > 0 && !isShowLoading {
-                Button(action: {
-                    startEdit()
-                }, label: {
-                    Text("Start")
-                })
+                HStack{
+                    Button(action: {
+                        startEdit(speed: 2.0)
+                    }, label: {
+                        Text("Slow")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(4)
+                            .padding()
+                    })
+                    Spacer()
+                    Button(action: {
+                        startEdit(speed: 1.0)
+                    }, label: {
+                        Text("Normal")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(4)
+                            .padding()
+                    })
+                    Spacer()
+                    Button(action: {
+                        startEdit(speed: 0.5)
+                    }, label: {
+                        Text("Fast")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.orange)
+                            .cornerRadius(4)
+                            .padding()
+                    })
+                }
             }
             
             if savedUrl != nil {
