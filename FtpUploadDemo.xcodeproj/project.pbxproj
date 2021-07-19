@@ -25,6 +25,8 @@
 		8664CFA2267A0ED500AE2E36 /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CFA0267A0ED500AE2E36 /* Upload.swift */; };
 		8664CFA3267A0ED500AE2E36 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664CFA1267A0ED500AE2E36 /* Library.swift */; };
 		8664CFA5267A4FD400AE2E36 /* AMSMB2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8664CFA4267A4FD400AE2E36 /* AMSMB2.framework */; };
+		86A081AE26A57FDF00AB03F7 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A081AD26A57FDF00AB03F7 /* AZSClient.framework */; };
+		86A081B026A5801900AB03F7 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A081AF26A5800F00AB03F7 /* libxml2.2.tbd */; };
 		FAA361A8F63C514A3A241A52 /* Pods_FtpUploadDemo_FtpUploadDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25A54F9253AE1A10AC2F161A /* Pods_FtpUploadDemo_FtpUploadDemoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,9 @@
 		8664CFA0267A0ED500AE2E36 /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		8664CFA1267A0ED500AE2E36 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		8664CFA4267A4FD400AE2E36 /* AMSMB2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AMSMB2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86A081AD26A57FDF00AB03F7 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AZSClient.framework; sourceTree = "<group>"; };
+		86A081AF26A5800F00AB03F7 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		86A081B126A5816000AB03F7 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8EBE30A90494BFFECF43D3F3 /* Pods-FtpUploadDemo-FtpUploadDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemo-FtpUploadDemoUITests.debug.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemo-FtpUploadDemoUITests/Pods-FtpUploadDemo-FtpUploadDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCDE1EA0AAA479C3739F9336 /* Pods-FtpUploadDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemoTests.release.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemoTests/Pods-FtpUploadDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		F3443BCB170AF866CA798634 /* Pods-FtpUploadDemo-FtpUploadDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FtpUploadDemo-FtpUploadDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-FtpUploadDemo-FtpUploadDemoUITests/Pods-FtpUploadDemo-FtpUploadDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +91,8 @@
 			files = (
 				8664CFA5267A4FD400AE2E36 /* AMSMB2.framework in Frameworks */,
 				2E1A592A1E783459846C47DA /* Pods_FtpUploadDemo.framework in Frameworks */,
+				86A081AE26A57FDF00AB03F7 /* AZSClient.framework in Frameworks */,
+				86A081B026A5801900AB03F7 /* libxml2.2.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +139,7 @@
 		8664CF61267A0DE000AE2E36 = {
 			isa = PBXGroup;
 			children = (
+				86A081AD26A57FDF00AB03F7 /* AZSClient.framework */,
 				8664CF6C267A0DE000AE2E36 /* FtpUploadDemo */,
 				8664CF7E267A0DE100AE2E36 /* FtpUploadDemoTests */,
 				8664CF89267A0DE100AE2E36 /* FtpUploadDemoUITests */,
@@ -162,6 +170,7 @@
 				8664CF71267A0DE100AE2E36 /* Assets.xcassets */,
 				8664CF76267A0DE100AE2E36 /* Info.plist */,
 				8664CF73267A0DE100AE2E36 /* Preview Content */,
+				86A081B126A5816000AB03F7 /* Bridging-Header.h */,
 			);
 			path = FtpUploadDemo;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 		F1B1734F30E1521F05A0887F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86A081AF26A5800F00AB03F7 /* libxml2.2.tbd */,
 				8664CFA4267A4FD400AE2E36 /* AMSMB2.framework */,
 				30CDE4E7630C196ED0CDB934 /* Pods_FtpUploadDemo.framework */,
 				25A54F9253AE1A10AC2F161A /* Pods_FtpUploadDemo_FtpUploadDemoUITests.framework */,
@@ -634,6 +644,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FtpUploadDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = CZ6GH645A6;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FtpUploadDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -642,6 +656,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FtpUploadDemo/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -657,6 +672,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FtpUploadDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = CZ6GH645A6;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FtpUploadDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -665,6 +684,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zombie.FtpUploadDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FtpUploadDemo/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

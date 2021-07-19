@@ -9,11 +9,8 @@ import SwiftUI
 import AMSMB2
 
 class SMBClient {
-    
+//    SMB sharing
     let serverURL = URL(string: "smb://192.168.1.53")!
-//    let serverURL = URL(string: "smb://192.168.86.228")!
-//    let serverURL = URL(string: "smb://epicdevprem:ibiotimxktuf%2fn2ejwajp4ighwoaokzpzbbrdli0mi6ppntzlid2n1p56o9eic0yro626trwq0nyqwll%2fe9qrw%3d%3d@epicdevprem.file.core.windows.net/bec")!
-//    let credential = URLCredential(user: "epicdevprem", password: "caVf4s+0LGp2I9SL85OQTG7NniWukEfUpYtJoZwWfATruMyil29sS9v00LY5lwZoC3lQOvmNArC/y6WhiTtdFw==", persistence: URLCredential.Persistence.forSession)
     let credential = URLCredential(user: "kinhthu", password: "lamgico", persistence: URLCredential.Persistence.forSession)
     let shareDirectory = "FTP Sharing"
     
@@ -34,13 +31,36 @@ class SMBClient {
 struct ContentView: View {
     @State private var smbClient = SMBClient()
     
+//    azure blob storage
+    private let containerName = "test1"
+    private let connectionString = "DefaultEndpointsProtocol=http;AccountName=decedgeblob;AccountKey=M8iTCobWP4TtUZf8RcVlNEnecSU5tD7gKe2RjYMZlZMonGXF6THLpfyUyekD2yTXZH5owub1AbU2M5RMq9W6UA==;BlobEndpoint=http://edge-sample-iot-device.australiaeast.cloudapp.azure.com:11002/decedgeblob"
+    
+    @State var blobContainer: AZSCloudBlobContainer?
+    
+    func initBlobStorage() -> AZSCloudBlobContainer {
+        var container:AZSCloudBlobContainer? = nil
+        do {
+            let account = try AZSCloudStorageAccount(fromConnectionString: self.connectionString)
+            let blobClient = account.getBlobClient()
+            container  = blobClient.containerReference(fromName: self.containerName)
+        } catch {
+            print(error)
+        }
+        return container!
+    }
+    
+    init() {
+        let container = initBlobStorage()
+        _blobContainer = State(initialValue: container)
+    }
+    
     var body: some View {
         TabView {
             VideoView()
                 .tabItem {
                     Label("Library", systemImage: "video.fill")
                 }
-            UploadView(smbClient: self.$smbClient)
+            UploadView(smbClient: self.$smbClient, blobContainer: $blobContainer)
                 .tabItem {
                 Label("Upload", systemImage: "icloud.and.arrow.up.fill")
             }

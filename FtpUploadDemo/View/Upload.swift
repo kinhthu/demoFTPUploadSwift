@@ -4,6 +4,7 @@ import AVKit
 
 struct UploadView: View {
     @Binding var smbClient: SMBClient
+    @Binding var blobContainer: AZSCloudBlobContainer?
     
     @State var isShowingImagePicker = false
     @State var selectedImage = UIImage()
@@ -79,6 +80,34 @@ struct UploadView: View {
          }
     }
     
+    func uploadFileToBlob() {
+        self.updateSuccess = false
+        self.uploadTime = 0
+        let item = mediaItems.items[0]
+        
+        do {
+            print("upload video: \(item.url!)")
+            let start = DispatchTime.now()
+            self.uploading.toggle()
+                let mediaData = try Data(contentsOf: item.url!, options: .alwaysMapped)
+                let theFileName = (item.url!.path as NSString).lastPathComponent
+                
+                let blob = blobContainer?.blockBlobReference(fromName: theFileName)
+                blob?.uploadFromFile(with: item.url!, completionHandler: { _ in
+                print("Uploaded Successfully!")
+                clearFile()
+                self.updateSuccess = true
+
+                let end = DispatchTime.now()
+                let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+                let timeInterval = Double(nanoTime)
+                self.uploadTime = timeInterval/1000000000
+            })
+         } catch let error {
+           print(error)
+         }
+    }
+    
     var body: some View {
         VStack {
             List(mediaItems.items, id: \.id) { item in
@@ -125,7 +154,8 @@ struct UploadView: View {
             
             Button(action: {
                 if (!self.uploading) {
-                    uploadFile()
+//                    uploadFile()
+                    uploadFileToBlob()
                 }
 
             }, label: {
